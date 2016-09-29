@@ -1,0 +1,142 @@
+<ui:composition
+        template="/WEB-INF/templates/_default.xhtml"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="head">
+        <link rel="stylesheet" href="#{request.contextPath}/css/odometer-theme-default.css" />
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="block-intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                        <h2>How safe is it where you are now?</h2>
+                        <h4>Safer Streets uses data from the Chicago Police Department to identify which streets may be dangerous for you to walk on.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="map-canvas">
+            <div class="centered-loading"></div>
+        </div>
+
+        <div class="infobox-wrapper">
+            <div id="infobox">
+                You are here
+            </div>
+        </div>
+
+        <div class="top-crimes">
+            <div class="container">
+                <div class="row">
+                    <h3 style="font-size:24px;">THE SAFETY LEVEL IN THIS AREA IS <span id='safety-rating'>(LOADING...)</span></h3>
+                    <h3 style="font-size:16px; padding-top:0px;">TOP 3 RECENT CRIME-TYPES</h3>
+                </div>
+                <div class="row crime-count">
+                    <div class="col-sm-4 col-xs-4">
+                        <h1 id="top-crime-count-0" class="odometer">0</h1>
+                        <p id="top-crime-type-0" style="text-transform: uppercase;">-</p>
+                    </div>
+                    <div class="col-sm-4 col-xs-4">
+                        <h1 id="top-crime-count-1" class="odometer">0</h1>
+                        <p id="top-crime-type-1" style="text-transform: uppercase;">-</p>
+                    </div>
+                    <div class="col-sm-4 col-xs-4">
+                        <h1 id="top-crime-count-2" class="odometer">0</h1>
+                        <p id="top-crime-type-2" style="text-transform: uppercase;">-</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block-download">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="padding-top: 120px;">
+                        <div class="row">
+                            <p>
+                                Be alerted whenever you're about to enter a dangerous street in Chicago.
+                            </p>
+                            <p>Get Watch Over Me.</p>
+                        </div>
+                        <div class="row" style="padding-top:30px;">
+                            <a href="http://bit.ly/VmCZrT" class="appstore"><img src="#{request.contextPath}/img/appstore.png"/></a>
+                            <a href="http://bit.ly/YrCYUh" class="googleplay"><img src="#{request.contextPath}/img/googleplay.png"/></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-center phone-pic">
+                        <img src="#{request.contextPath}/img/wom-download2.png" style="height:400px;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block-join-movement">
+            <div class="grey-triangle hidden-xs"></div>
+            <div class="container">
+                <div class="row">
+                    <h2 style="padding-top:80px;">Join the Safer Streets Movement today</h2>
+                    <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+                        <p><a href="http://saferstreets.org">SaferStreets.org</a> is a movement led by people passionate about using technology to help women living in cities feel safer and lead freer lives. We're piloting project in Chicago.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <h3>How can you contribute?</h3>
+                    <div class="col-sm-4 col-xs-12 steps">
+                        <img src="#{request.contextPath}/img/icons/3-stars-orange.png" />
+                        <h4>RATE STREETS</h4>
+                        <p>Download Watch Over Me to receive street ratings and share your own street ratings.</p>
+                        <div class="row" style="padding-top:30px;">
+                            <a href="http://bit.ly/VmCZrT" class="appstore"><img src="#{request.contextPath}/img/appstore.png" style="height:40px;"/></a>
+                            <a href="http://bit.ly/YrCYUh" class="googleplay"><img src="#{request.contextPath}/img/googleplay.png" style="height:40px;"/></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 steps">
+                        <img src="#{request.contextPath}/img/icons/chat-orange.png" />
+                        <h4>SPREAD THE WORD</h4>
+                        <p>Share the Safer Streets movement with your friends on Facebook &amp; Twitter. Remember to #SaferStreets and #YourCity :)</p>
+                        <div id="social-share">
+                            <ul class="list-inline">
+                                <li>
+                                    <div id="facebook1"
+                                        data-url="https://saferstreets.org"
+                                        data-text="How safe are you right now? Check how safe is your area with Safer Streets."
+                                        ></div>
+                                </li>
+                                <li>
+                                    <div id="twitter1"
+                                        data-url="https://saferstreets.org"
+                                        data-text="What if we had a safety rating for every street? #SaferStreets"
+                                        ></div>
+                                </li>
+                                <li>
+                                    <div id="linkedin1"
+                                        data-url="https://saferstreets.org"
+                                        data-text="How safe are you right now? Check how safe is your area with Safer Streets."
+                                        ></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 steps">
+                        <img src="#{request.contextPath}/img/icons/handshake-orange.png" />
+                        <h4>COLLABORATE WITH US</h4>
+                        <p>We're looking to collaborate with NGOs, police departments, city councils, and any individuals who want to make their streets safer for women.</p>
+                        <p style="padding-top:40px;">Write to us at <a href="mailto:collaborate@saferstreets.org" title="Email">collaborate@saferstreets.org</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+    <ui:define name="scripts">
+        <script src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox_packed.js"></script>
+        <script type="text/javascript" src="#{request.contextPath}/js/odometer.min.js"></script>
+        <script type="text/javascript" src="#{request.contextPath}/js/chicago.js"></script>
+    </ui:define>
+</ui:composition>

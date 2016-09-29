@@ -1,0 +1,148 @@
+<!DOCTYPE html [
+        <!ENTITY nbsp "&#xA0;">
+        <!ENTITY times "&#xD7;">
+]>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="With Safer Streets you’ll get an alert whenever you enter a high-crime area. We're piloting it in Chicago. Vote today and your city can be next!"/>
+    <meta name="keywords" content="best personal safety app, best women safety app, best safety app, tracking app, rescue app, first aid app, iphone first aid app, android first aid app, automatic emergency alert, sos emergency alert, women rescue, best campus app, panic button, personal security, personal guard, virtual security guard, emergency contact, best free android app, best free ios app, best app for iphone, best app for android, best safety app for iphone, best safety app for android, personal protection app, women protection app, best app for women, best app for female, panic button app, best panic button app, best panic button app for android, best panic button app for iphone, best safety tool, best iphone safety tool, best android safety tool, best women safety app, best women safety app for iphone, best women safety app for android"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Safer Streets | Safety ratings based on crime reports and social data"/>
+    <meta property="og:url" content="https://saferstreets.org"/>
+    <meta property="og:image" content="https://saferstreets.org/img/ss-fb-post.jpg"/>
+
+    <title><ui:insert name="title">Safer Streets</ui:insert></title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/img/ss-favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/jBox.css"/>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/main.css"/>
+    <ui:insert name="head"></ui:insert>
+</h:head>
+<h:body>
+    <nav role="navigation" class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target="#navbar-menu" class="navbar-toggle">
+                    <span class="glyphicon glyphicon-align-justify"></span>
+                </button>
+                <a href="#{request.contextPath}/" class="navbar-brand">
+                    <img src="#{request.contextPath}/img/ss-logo-blue.png" style="height:70%;"/>
+                </a>
+            </div>
+            <div id="navbar-menu" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="#{view.viewId == '/index.xhtml' ? 'active' : ''}"><a href="#{request.contextPath}/">Home</a></li>
+                    <li class="#{view.viewId == '/chicago/index.xhtml' ? 'active ' : ''}live"><a href="#{request.contextPath}/chicago/">Chicago<strong style="top:100px; color:red;"><sup>LIVE</sup></strong></a></li>
+                    <li class="#{view.viewId == '/san-francisco/index.xhtml' ? 'active' : ''}"><a href="#{request.contextPath}/san-francisco/">San Francisco</a></li>
+                    <li class="#{view.viewId == '/new-york/index.xhtml' ? 'active' : ''}"><a href="#{request.contextPath}/new-york/">New York</a></li>
+                    <li class="#{view.viewId == '/los-angeles/index.xhtml' ? 'active' : ''}"><a href="#{request.contextPath}/los-angeles/">Los Angeles</a></li>
+                    <li><button href="#{request.contextPath}/modal/" class="btn btn-primary btn-md" data-toggle="modal" data-target="#voting-modal" style="margin-top:23px;">Get Safer Streets</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <ui:insert name="content"></ui:insert>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-2">
+                    <h5>Info</h5>
+                    <ul class="list-unstyled links">
+                        <li><a href="#{request.contextPath}/">Home</a></li>
+                        <li><a href="#{request.contextPath}/chicago/">Chicago</a></li>
+                        <li><a href="#{request.contextPath}/san-francisco/">San Francisco</a></li>
+                        <li><a href="#{request.contextPath}/new-york/">New York</a></li>
+                        <li><a href="#{request.contextPath}/los-angeles/">Los Angeles</a></li>
+                        <li><button href="#{request.contextPath}/modal/" class="btn btn-primary btn-md" data-toggle="modal" data-target="#voting-modal" style="margin-top:23px;">Get Safer Streets</button></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <h5>Connect with us</h5>
+                    <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatchovermeapp&amp;width=190&amp;height=210&amp;colorscheme=dark&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=229707053882483"
+                            scrolling="no" frameborder="0" style="border:none; overflow:hidden;
+                            width:250px; height:210px;" allowTransparency="true"></iframe>
+                </div>
+                <div class="col-xs-12 col-sm-3 support">
+                    <h5>Or email us directly at</h5>
+                    <a href="mailto:support@saferstreets.com" title="Email">support@saferstreets.org</a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <h5 style="line-height:20px;">Download Watch Over Me app with<br/>Safer Streets feature for free:
+                    </h5>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="http://bit.ly/VmCZrT" class="appstore"><img src="#{request.contextPath}/img/appstore.png" style="height:40px;"/></a>
+                        </li>
+                        <li>
+                            <a href="http://bit.ly/YrCYUh" class="googleplay"><img src="#{request.contextPath}/img/googleplay.png" style="height:40px;"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">
+                <strong>Safer Streets</strong> Copyright © 2015 WATCH OVER ME. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="voting-modal" tabindex="-1" role="dialog" aria-labelledby="voting-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body row-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="temp-modal-container"></div>
+
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=places&amp;language=en"></script>
+    <script type="text/javascript" src="#{request.contextPath}/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/js/jquery.sharrre.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/js/jBox.min.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/js/geolocator.min.js"></script>
+
+    <script type="text/javascript">
+        var SS_API_BASE_URL = "#{request.contextPath}";
+        var CONTEXT_PATH = "#{request.contextPath}";
+    </script>
+
+    <script type="text/javascript" src="#{request.contextPath}/js/social-media-share-counter.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/js/voting.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/js/main.js"></script>
+
+    <ui:insert name="scripts"></ui:insert>
+
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-39494626-5', 'auto');
+        ga('send', 'pageview');
+    </script>
+</h:body>
+</html>

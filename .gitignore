@@ -1,0 +1,13 @@
+build/
+dist/
+lib/
+out/
+report/
+
+!sql/
+!sql/*
+!sql/migration_20160229/*
+
+.idea/dictionary
+.idea/workspace.xml
+.idea/task.xml

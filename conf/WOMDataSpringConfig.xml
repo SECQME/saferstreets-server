@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="WOMDataConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:SystemConfig.properties</value>
+        </property>
+    </bean>
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>message</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--
+         Configuration for DAO
+    -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="womdataengine"/>
+    </bean>
+
+    <bean id="baseJPADAO" abstract="true">
+        <property name="emf" ref="entityManagerFactory"/>
+    </bean>
+
+    <bean id="crimeDataDAO" class="com.secqme.crimedata.domain.dao.jpa.CrimeDataJPADAO"
+          parent="baseJPADAO"/>
+    <bean id="cityInfoDAO" class="com.secqme.crimedata.domain.dao.jpa.CityInfoJPADAO"
+          parent="baseJPADAO"/>
+    <bean id="crimeStreetsRatingDAO" class="com.secqme.crimedata.domain.dao.jpa.CrimeStreetsRatingJPADAO"
+          parent="baseJPADAO"/>
+    <bean id="userStreetSafetyRatingDAO" class="com.secqme.crimedata.domain.dao.jpa.UserStreetSafetyRatingJPADAO"
+          parent="baseJPADAO"/>
+    <bean id="saferStreetsRequestDAO" class="com.secqme.crimedata.domain.dao.jpa.SaferStreetsRequestJPADAO"
+          parent="baseJPADAO"/>
+    <bean id="subscriptionNotificationRequestDAO" class="com.secqme.crimedata.domain.dao.jpa.SubscriptionNotificationRequestJPADAO"
+          parent="baseJPADAO"/>
+    <bean id="crimeTypeDAO" class="com.secqme.crimedata.domain.dao.jpa.CrimeTypeJPADAO"
+          parent="baseJPADAO"/>
+    <bean id="jpaHelper" class="com.secqme.crimedata.domain.dao.jpa.DefaultJPAHelper">
+        <constructor-arg ref="entityManagerFactory"/>
+    </bean>
+
+    <!--
+         Configuration for Util
+    -->
+    <bean id="cacheUtil" class="com.secqme.util.cache.RedisCacheUtil">
+        <constructor-arg>
+            <value>${redis.host}</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>${redis.port}</value>
+        </constructor-arg>
+    </bean>
+    <!--<bean id="cacheUtil" class="com.secqme.util.cache.DynamoDBCacheUtil">-->
+        <!--<constructor-arg>-->
+            <!--<value>${aws.credential.accessKeyId}</value>-->
+        <!--</constructor-arg>-->
+        <!--<constructor-arg>-->
+            <!--<value>${aws.credential.secretAccessKey}</value>-->
+        <!--</constructor-arg>-->
+        <!--<constructor-arg>-->
+            <!--<value>${aws.table.name}</value>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
+    <bean id="restUtil" class="com.secqme.util.rest.DefaultRestUtil"/>
+    <bean id="jsonModelFactory" class="com.secqme.util.json.DefaultJSONModelFactory"/>
+    <bean id="locationUtil" class="com.secqme.util.location.DefaultLocationUtil">
+        <constructor-arg>
+            <value>${crime.report.geocoding.url}</value>
+        </constructor-arg>
+    </bean>
+
+    <!--
+        SODA CrimeType - used LevenshteinDistance to match crimeType pull via SODA
+    -->
+    <bean id="crimeType" class="com.secqme.crimedata.source.soda.CrimeType">
+        <constructor-arg ref="crimeTypeDAO"/>
+        <constructor-arg ref="cacheUtil"/>
+    </bean>
+
+    <bean id="chicagoDataEngine" class="com.secqme.crimedata.source.soda.ChicagoPoliceDataEngine">
+        <constructor-arg ref="restUtil"/>
+        <constructor-arg ref="crimeDataDAO"/>
+        <constructor-arg ref="crimeType"/>
+        <constructor-arg ref="locationUtil"/>
+        <constructor-arg ref="cityInfoDAO"/>
+    </bean>
+
+    <bean id="sanFranDataEngine" class="com.secqme.crimedata.source.soda.SanFranPoliceDataEngine">
+        <constructor-arg ref="restUtil"/>
+        <constructor-arg ref="crimeDataDAO"/>
+        <constructor-arg ref="crimeType"/>
+        <constructor-arg ref="cityInfoDAO"/>
+    </bean>
+
+    <bean id="laDataEngine" class="com.secqme.crimedata.source.soda.LAPoliceDataEngine">
+        <constructor-arg ref="crimeType"/>
+        <constructor-arg ref="restUtil"/>
+        <constructor-arg ref="crimeDataDAO"/>
+        <constructor-arg ref="locationUtil"/>
+        <constructor-arg ref="cityInfoDAO"/>
+    </bean>
+
+    <bean id="crimeManager" class="com.secqme.crimedata.manager.DefaultCrimeManager">
+        <constructor-arg ref="crimeDataDAO"/>
+        <constructor-arg ref="cityInfoDAO"/>
+        <constructor-arg ref="userStreetSafetyRatingDAO"/>
+        <constructor-arg ref="crimeStreetsRatingDAO"/>
+        <constructor-arg ref="saferStreetsRequestDAO"/>
+        <constructor-arg ref="subscriptionNotificationRequestDAO"/>
+        <constructor-arg ref="cacheUtil"/>
+        <constructor-arg ref="locationUtil"/>
+        <constructor-arg>
+            <value>${crime.report.interval.in.days}</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>${crime.cell.distance.in.km}</value>
+        </constructor-arg>
+        <constructor-arg ref="crimeTypeDAO"/>
+    </bean>
+
+    <bean id="dataManager" class="com.secqme.crimedata.manager.DefaultDataManager">
+        <constructor-arg ref="cityInfoDAO"/>
+        <constructor-arg ref="crimeTypeDAO"/>
+        <constructor-arg ref="crimeDataDAO"/>
+        <constructor-arg ref="locationUtil"/>
+        <constructor-arg ref="cacheUtil"/>
+    </bean>
+
+    <bean id="scheduleManager" class="com.secqme.util.scheduler.DefaultScheduleManager" init-method="initScheduleManager">
+
+    </bean>
+
+    <!--<bean id="crimeCalUtil" class="com.secqme.crimedata.manager.util.CrimeCalWithCrimeWeight">-->
+        <!--<constructor-arg ref="cacheUtil"/>-->
+        <!--<constructor-arg ref="locationUtil"/>-->
+    <!--</bean>-->
+
+
+</beans>

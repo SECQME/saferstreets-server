@@ -1,0 +1,60 @@
+<!DOCTYPE html [
+        <!ENTITY nbsp "&#xA0;">
+        <!ENTITY times "&#xD7;">
+]>
+<html>
+<head>
+	<title>Safer Streets</title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/main.css"/>
+</head>
+<body>
+    <!-- Modal -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <!-- &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;/button&gt; -->
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="row modal-intro">
+                        <h2>Reclaim your streets &amp; your city today</h2>
+                        <p>The Safer Streets technology is now live in Chicago, but we're looking to bring Safer Streets to 50 cities by 2017... and your city could be next. <b>Vote for your city</b> so we can add it to our Safer Streets pipeline.</p>
+                    </div>
+
+                    <div class="row vote-form">
+                        <h4>I vote for <input type="text" id="city" name="city" field="city" style="display: none" /><img src="#{request.contextPath}/img/icons/loading-img.gif" class="loading-img" /><input id="vote-locality" name="vote-locality" class="input-location" type="text" placeholder="" autofocus="autofocus" style="display: none" /></h4>
+                        <div id="voteForm">
+                            <input type="hidden" id="vote-state" name="vote-state" />
+                            <input type="hidden" id="vote-country" name="vote-country" />
+                            <input type="hidden" id="vote-postcode" name="vote-postcode" />
+                            <label for="vote-name">
+                                <span class="text">Name</span>
+                                <input id="vote-name" name="vote-name" type="text" value="" autocomplete="off" autofocus="" placeholder="Your full name" required="true" />
+                            </label>
+                            <label for="vote-email">
+                                <span class="text">Email</span>
+                                <input id="vote-email" name="vote-email" type="email" value="" autocomplete="off" autofocus="" placeholder="Your email address" required="true" />
+                            </label>
+                            <button class="btn btn-success btn-vote" onclick="checkAndPostSaferStreetsRequest();">VOTE</button>
+                            <p class="or">- or -</p>
+                            <button class="btn btn-fb" onclick="loginAndVoteViaFacebook();">Vote with Facebook</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-39494626-5', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

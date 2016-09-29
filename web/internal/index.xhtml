@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/html">
+<head>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
+</head>
+<body>
+    <div class="container-fluid">
+        <f:view>
+            <h2>Saferstreets Crime Type</h2>
+            <h:form>
+                <div class="table-responsive">
+                    <h:dataTable value="#{crimeReportBean.allCrimeType}" var="crime" class="table table-striped">
+                        <h:column>
+                            <f:facet name="header">Crime Type</f:facet>
+                            <h:outputText value="#{crime.name}"/>
+                        </h:column>
+                        <h:column name="header">
+                            <f:facet name="header">Display Name</f:facet>
+                            <h:inputText value="#{crime.displayName}" class="form-control"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Description</f:facet>
+                            <h:inputTextarea value="#{crime.description}" style="margin: 0px; width: 623px; height: 54px;" class="form-control"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Crime Weight</f:facet>
+                            <h:outputText value="#{crime.crimeWeight}" class="disabled"/>
+                        </h:column>
+                    </h:dataTable>
+                    <h:commandButton value="Save Changes" action="#{crimeReportBean.saveAction}" class="btn btn-default"/>
+                </div>
+            </h:form>
+        </f:view>
+    </div>
+</body>
+
+</html>

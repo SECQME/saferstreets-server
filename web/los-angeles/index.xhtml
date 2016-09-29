@@ -1,0 +1,60 @@
+<ui:composition
+        template="/WEB-INF/templates/_default.xhtml"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:define name="content">
+        <div id="coming" class="los-angeles">
+            <div class="container">
+                <div class="row">
+                    <div class="coming-banner">
+                        <h1>COMING SOON</h1>
+                        <h2>Get Notified</h2>
+
+                        <form action="https://docs.google.com/forms/d/1J0dPdVeFjc0Mv-QL0KUUtcE3nVv-Z8JdAAxlMCeK3Nc/formResponse" method="POST" id="subscribe-form">
+                            <input type="hidden" id="subscription-city" name="entry.704875290" value="Los Angeles"/>
+                            <input type="hidden" id="subscription-state" name="entry.1969200065" value="California"/>
+                            <input type="hidden" id="subscription-country" name="entry.73222224" value="US"/>
+                            <div class="xfield">
+                                <div class="emailField">
+                                    <input type="text" id="subscription-email" name="entry.2100964568" class="field" placeholder="Enter your email" />
+                                    <div class="submit-btn"><span></span></div>
+                                </div>
+                                <div class="successField hidden"></div>
+                            </div>
+                        </form>
+
+                        <div id="social-share">
+                            <ul class="list-inline">
+                                <li>
+                                    <div id="facebook"
+                                         data-url="https://saferstreets.org"
+                                         data-text="How safe are you right now? Check how safe is your area with Safer Streets."
+                                            ></div>
+                                </li>
+                                <li>
+                                    <div id="twitter"
+                                         data-url="https://saferstreets.org"
+                                         data-text="What if we had a safety rating for every street? #SaferStreets"
+                                            ></div>
+                                </li>
+                                <li>
+                                    <div id="linkedin"
+                                         data-url="https://saferstreets.org"
+                                         data-text="How safe are you right now? Check how safe is your area with Safer Streets."
+                                            ></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row" style="padding-top:30px;">
+                            <a href="http://bit.ly/VmCZrT" class="appstore"><img src="../img/appstore.png" style="height:50px;"/></a>
+                            <a href="http://bit.ly/YrCYUh" class="googleplay"><img src="../img/googleplay.png" style="height:50px;"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+    <ui:define name="scripts">
+        <script type="text/javascript" src="#{request.contextPath}/js/coming-soon.js"></script>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,90 @@
+-- Crime Type
+ALTER TABLE crime_type ADD COLUMN created_date TIMESTAMP;
+ALTER TABLE crime_type ADD COLUMN updated_date TIMESTAMP;
+
+UPDATE crime_type SET created_date = now();
+UPDATE crime_type SET updated_date = now();
+
+
+ALTER TABLE userStreetSafetyRatingLog MODIFY COLUMN postcode VARCHAR(255);
+ALTER TABLE crimeStreetsRating MODIFY COLUMN postcode VARCHAR(255);
+ALTER TABLE crimeType ADD COLUMN violent bool;
+
+
+UPDATE crimeType SET violent = 1 WHERE crimeType = "ARSON";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "ASSAULT";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "BATTERY";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "CRIM SEXUAL ASSAULT";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "CRIMINAL ABORTION";
+
+UPDATE crimeType SET violent = 1 WHERE crimeType = "CRIMINAL DAMAGE";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "EXTORTION";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "FAMILY OFFENSES";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "HOMICIDE";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "HUMAN TRAFFICKING";
+
+UPDATE crimeType SET violent = 1 WHERE crimeType = "INTERFERENCE WITH PUBLIC OFFICER";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "INTIMIDATION";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "KIDNAPPING";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "OFFENSE INVOLVING CHILDREN";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "PUBLIC PEACE VIOLATION";
+
+UPDATE crimeType SET violent = 1 WHERE crimeType = "SEX OFFENSES, FORCIBLE";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "SEX OFFENSES, NON FORCIBLE";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "SEX OFFENSES  FORCIBLE";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "STALKING";
+
+UPDATE crimeType SET violent = 1 WHERE crimeType = "VANDALISM";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "RITUALISM";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "BURGLARY";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "LARCENY THEFT";
+UPDATE crimeType SET violent = 1 WHERE crimeType = "LARCENY/THEFT";
+
+UPDATE crimeType SET violent = 0 WHERE crimeType = "WEAPONS VIOLATION";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "SUICIDE";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "SEX OFFENSE";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "PROSTITUTION";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "DISORDERLY CONDUCT";
+
+UPDATE crimeType SET violent = 0 WHERE crimeType = "DRIVING UNDER THE INFLUENCE";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "BAD CHECKS";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "BRIBERY";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "CONCEALED CARRY LICENSE VIOLATION";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "CRIMINAL TRESPASS";
+
+UPDATE crimeType SET violent = 0 WHERE crimeType = "DECEPTIVE PRACTICE";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "DRUG NARCOTIC";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "DRUNKENNESS";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "EMBEZZLEMENT";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "FORGERY COUNTERFEITING";
+
+UPDATE crimeType SET violent = 0 WHERE crimeType = "FRAUD";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "GAMBLING";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "LIQUOR LAW VIOLATION";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "LIQUOR LAWS";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "LOITERING";
+
+UPDATE crimeType SET violent = 0 WHERE crimeType = "MISSING PERSON";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "MOTOR VEHICLE THEFT";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "NARCOTICS";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "NON CRIMINAL";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "OBSCENITY";
+
+UPDATE crimeType SET violent = 0 WHERE crimeType = "PORNOGRAPHY/OBSCENE MAT";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "PUBLIC INDECENCY";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "RECOVERED VEHICLE";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "RUNAWAY";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "STOLEN PROPERTY";
+
+UPDATE crimeType SET violent = 0 WHERE crimeType = "THEFT";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "TRESPASS";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "VEHICLE THEFT";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "OTHER OFFENSE";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "OTHER OFFENSES";
+
+UPDATE crimeType SET violent = 0 WHERE crimeType = "NON - CRIMINAL";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "NON-CRIMINAL";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "DRUG/NARCOTIC";
+UPDATE crimeType SET violent = 0 WHERE crimeType = "Remark";
+
+

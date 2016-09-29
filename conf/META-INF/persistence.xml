@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+    <persistence-unit name="womdataengine" transaction-type="RESOURCE_LOCAL">
+        <class>com.secqme.crimedata.domain.model.CrimeDataVO</class>
+        <class>com.secqme.crimedata.domain.model.CityInfo</class>
+        <class>com.secqme.crimedata.domain.model.CrimeStreetsRatingVO</class>
+        <class>com.secqme.crimedata.domain.model.UserStreetSafetyRatingVO</class>
+        <class>com.secqme.crimedata.domain.model.SaferStreetsRequestVO</class>
+        <class>com.secqme.crimedata.domain.model.SubscriptionNotificationRequestVO</class>
+        <class>com.secqme.crimedata.domain.model.CrimeTypeVO</class>
+
+        <class>com.secqme.crimedata.domain.converter.PostgisConverter</class>
+
+        <!--<non-jta-data-source>java:comp/env/jdbc/SaferStreetDB</non-jta-data-source>-->
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="@javax.persistence.jdbc.driver@"/>
+            <property name="javax.persistence.jdbc.url" value="@javax.persistence.jdbc.url@"/>
+            <property name="javax.persistence.jdbc.user" value="@javax.persistence.jdbc.user@"/>
+            <property name="javax.persistence.jdbc.password" value="@javax.persistence.jdbc.password@"/>
+
+            <property name="eclipselink.weaving" value="static"/>
+            <property name="eclipselink.cache.shared.default" value="false"/>
+            <property name="eclipselink.jdbc.connections.initial" value="10"/>
+            <property name="eclipselink.jdbc.connections.min" value="10"/>
+            <property name="eclipselink.jdbc.connections.max" value="40"/>
+        </properties>
+    </persistence-unit>
+</persistence>

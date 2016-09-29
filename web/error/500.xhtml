@@ -1,0 +1,19 @@
+<ui:composition
+        template="/WEB-INF/templates/_default.xhtml"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:define name="content">
+        <div class="container error-page">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 error-text">
+                    <div class="error-header">
+                        <img src="#{request.contextPath}/img/ss-logo-blue-big.png"/>
+                    </div>
+                    <h3>Error</h3>
+                    <p>Oops! Looks like something went wrong!</p>
+                    <p>Try refreshing the page or contact our support at <a href="mailto:support@saferstreets.org" title="Email">support@saferstreets.org</a>.</p>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

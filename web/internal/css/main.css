@@ -1,0 +1,424 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300italic,300,400italic,700,700italic);
+@font-face{
+	font-family: ProximaNova;
+	src: url(../fonts/ProximaNova-Regular.otf);
+}
+@font-face{
+	font-family: ProximaNovaSemibold;
+	src: url(../fonts/ProximaNova-Semibold.otf);
+}
+@font-face{
+	font-family: ProximaNovaExtrabold;
+	src: url(../fonts/ProximaNova-Extrabold.otf);
+}
+@font-face{
+	font-family: ProximaNovaLight;
+	src: url(../fonts/ProximaNova-Light.otf);
+}
+@font-face{
+	font-family: ProximaNovaLightItalic;
+	src: url(../fonts/ProximaNova-LightItalic.otf);
+}
+@font-face{
+	font-family: ProximaNovaRegItalic;
+	src: url(../fonts/ProximaNova-RegItalic.otf);
+}
+@font-face{
+	font-family: ProximaNovaRegular;
+	src: url(../fonts/ProximaNova-Regular.otf);
+}
+@font-face{
+	font-family: ProximaNovaRegularItalic;
+	src: url(../fonts/ProximaNova-RegularItalic.otf);
+}
+@font-face{
+	font-family: ProximaNovaSemiboldItalic;
+	src: url(../fonts/ProximaNova-SemiboldItalic.otf);
+}
+@font-face{
+	font-family: HelveticaNeue;
+	src: url(../fonts/HelveticaNeue.ttf);
+}
+@font-face{
+	font-family: HelveticaNeueLight;
+	src: url(../fonts/Helvetica-neue-light.otf);
+}
+@font-face{
+	font-family: OpenSans;
+	src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+html{
+	height:100%;
+}
+body {
+	height:100%;
+	/*font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+	font-weight:300;
+	font-size:16px;
+	line-height:24px;
+	color:#666666;
+}
+
+h1 ,.h1 {
+	font-size:38px;
+	font-weight:200;
+	line-height:30px;
+	font-family: ProximaNovaSemibold;
+}
+
+h2 ,.h2 {
+	font-size:20px;
+	/*font-weight:300;*/
+	line-height:18px;
+	font-family: ProximaNova;
+	padding-bottom: 22px;
+}
+
+h3 ,.h3 {
+	font-size:18px;
+	font-weight:400;
+	line-height:65px;
+	font-family: ProximaNovaLightItalic;
+}
+
+h4 ,.h4 {
+	font-size:20px;
+	line-height:30px;
+	font-family: OpenSans;
+}
+
+h5 ,.h5 {
+	font-size:16px;
+	font-family: OpenSans;
+}
+
+h1 ,h2 ,h3 ,h4 ,h5 ,h6 ,.h1 ,.h2 ,.h3 ,.h4 ,.h5 ,.h6 {
+	margin-top:0;
+}
+
+a {
+	font-weight:400;
+}
+
+p ,ul ,dl {
+	margin-bottom:12px;
+	font-size: 16px;
+	font-family: OpenSans;
+	line-height: 28px;
+}
+
+.navbar {
+	/*box-shadow:0 2px 0 rgba(0, 0, 0, 0.25);*/
+	/*background-color:#ffffff;*/
+	/*background-color: #3e8fca;*/
+	/*background-color:#242520;*/
+	/*background-color: #38C3DF;*/
+	background-color: black;
+	border-bottom:0 none;
+	margin-bottom:0;
+}
+
+/* navbar color after scrolling the page */
+.navbar.opaque {
+	background-color: #34C6E4;
+}
+
+.navbar .navbar-brand {
+	padding:10px 15px;
+	line-height:60px;
+	height:80px;
+	font-weight:700;
+	/*color:#1a1a1a;*/
+	color:#ffffff;
+	text-transform:uppercase;
+}
+
+.navbar .navbar-brand img {
+	margin-right:15px;
+}
+
+.navbar .navbar-nav li a {
+	padding:30px 20px;
+	color:#ffffff;
+}
+
+.navbar .navbar-nav li a:hover{
+	padding:30px 20px;
+	color:#ffffff;
+	text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+	color: #f9aa54;
+	background-color: transparent;
+	font-weight: bold;
+	text-shadow:none;
+}
+
+.content {
+	padding:80px 0;
+	background-color:#f8f8f3;
+	min-height:400px;
+}
+
+/* custom triangle */
+.tri-down {
+
+	/* Styling block element, not required */
+	position: relative;
+	margin-bottom: 2em;
+	padding: 1em;
+	border: 5px solid #f9aa54;
+	border-radius: 10px;
+	background: #FFFFFF;
+}
+
+/* Required for Down Triangle */
+.tri-down:before, .tri-down:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: transparent;
+	border-bottom: 0;
+}
+
+/* Stroke */
+.tri-down:before {
+	bottom: -20px;
+	left: 21px;
+
+	/* If 1px darken stroke slightly */
+	border-top-color: #f9aa54;
+	border-width: 16px;
+}
+
+/* Fill */
+.tri-down:after {
+	bottom: -14px;
+	left: 22px;
+	border-top-color: #FFFFFF;
+	border-width: 15px;
+}
+
+/* -- end of custom triangle */
+
+footer {
+	padding:40px 0;
+	/*background-color:#dcf0ef;*/
+	/*color:#999999;*/
+	background-color:#242520;
+	color:#ffffff;
+}
+
+footer h5 {
+	margin-top:20px;
+}
+
+footer a ,footer a:hover ,footer a:focus {
+	color:#ffffff;
+}
+
+footer .links {
+	margin-bottom:20px;
+}
+
+footer iframe {
+	background-color:#ffffff;
+	margin:0 auto;
+}
+
+footer .copyright {
+	margin-top:20px;
+	margin-bottom:0;
+	font-size: 12px;
+}
+
+footer .copyright strong {
+	text-transform:uppercase;
+	margin-right:10px;
+}
+
+footer .support a {
+	color: #34c6e4;
+}
+
+@media (max-width: 768px){
+	.navbar .navbar-toggle {
+		margin-top:18px;
+	}
+
+	.navbar .navbar-nav li a {
+		padding:10px 20px;
+	}
+
+	.track .main .map {
+		min-height:300px;
+	}
+
+	.track .main .dashboard {
+		position:static;
+		width:100%;
+		box-shadow:none;
+		-webkit-box-shadow:none;
+	}
+
+	.track .main .dashboard .table {
+		margin-top:20px;
+		margin-bottom:0;
+		border:1px solid #dddddd;
+	}
+}
+
+
+/* SAFER STREETS WEBSITE */
+.saferstreets-banner {
+	padding-top: 10px;
+	background-color: #7AB13A;
+	color: #FFFFFF;
+}
+
+.saferstreets-banner .bring-movement {
+	padding: 30px 0;
+}
+
+.custom-button {
+	padding: 30px 0;
+	margin: 0;
+}
+
+.custom-button a{
+	border: 2px;
+	border-style: solid;
+	border-color: #FFFFFF;
+	margin: 0;
+	font-family: "Open Sans";
+	font-size: 14px;
+	padding: 10px 10px;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.custom-button a:hover {
+	color: #404040;
+	border-color: #404040;
+}
+
+.block-intro {
+	padding: 60px 0;
+	text-align: center;
+	background-image: url(../img/cubes.png);
+	background-repeat: repeat;
+}
+
+.triangle {
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 30px 50px 0 50px;
+	border-color: #F4F4F4 transparent transparent transparent;
+	margin: 0 auto;
+}
+
+.block-map {
+	margin: 0;
+	padding: 0;
+	height: 596px;
+	background-image: url(../img/ss-map.png);
+	background-attachment: scroll;
+	background-repeat: none;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	background-size: contain;
+	-o-background-size: contain;
+	position:relative;
+	overflow:hidden;
+}
+
+.block-download {
+	padding: 40px 80px;
+	/*background-color: #404040;*/
+	/*background-color: #7AB13A;*/
+	background-color: #F4F4F4;
+	color: #404040;
+}
+
+.block-join-movement {
+	padding: 80px 0;
+	text-align: center;
+	color: #FFFFFF;
+	background-image: url(../img/random_grey_variations.png);
+	background-repeat: repeat;
+}
+
+.block-join-movement a, u {
+	color: #f9aa54;
+}
+
+.block-join-movement h3 {
+	padding-top: 40px;
+}
+
+.block-join-movement h4 {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #f9aa54;
+}
+
+.block-join-movement .steps {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.block-join-movement .steps ul li{
+	width: 50px;
+	height: 50px;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	background: #f9aa54;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+}
+
+.block-join-movement .steps i{
+	vertical-align: middle;
+	padding-top: 17px;
+	color: #404040;
+}
+
+.block-join-movement img {
+	height: 40px;
+}
+
+/* ------- SAFER STREETS WEBSITE COMING SOON ------- */
+#coming-soon {
+	/*background-color: #f9aa54;*/
+	/*background-image: url(../img/escheresque_ste.png);*/
+	/*background-repeat: repeat;*/
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	text-align: center;
+	color: #FFFFFF;
+	text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5);
+	padding-top: 230px;
+
+	background-image: url(../img/coming-soon-bg.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.coming-soon-banner {
+	background-color: rgba(0,0,0,0.6);
+	padding: 40px 0;
+	margin: 0;
+	width:100%;
+}
